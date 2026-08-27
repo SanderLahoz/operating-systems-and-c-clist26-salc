@@ -1,0 +1,1 @@
+return (text_t*)( (long)e - 8 );
