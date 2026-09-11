@@ -29,6 +29,11 @@
 list_elem_t *list_begin(list_t *l)
 {
   /* What if the list is NULL? */
+  if (l == NULL)
+  {
+    return NULL;
+  }
+
   return l->head;
 }
 
@@ -42,7 +47,12 @@ list_elem_t *list_begin(list_t *l)
 list_elem_t *list_next(list_elem_t *e)
 {
   /* What if the element is NULL? */
-  return NULL;
+  if (e == NULL)
+  {
+    return NULL;
+  }
+
+  return e->next;
 }
 
 /**
