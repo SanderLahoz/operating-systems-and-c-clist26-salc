@@ -9,8 +9,7 @@
  * A fork of the C programming lab developed at CMU for courses
  * 15-213/18-213/15-513 by R. E. Bryant, 2018
  *
- * TODO: fill in your name and ITU alias
- * @author FIRSTNAME LASTNAME <ALIAS@itu.dk>
+ * @author Sander Lahoz Christensen <salc@itu.dk>
  */
 
 #include "list.h"
@@ -27,7 +26,8 @@
  * @return the first element in the list, or NULL if the list is NULL
  * or empty.
  */
-list_elem_t* list_begin ( list_t* l ) {
+list_elem_t *list_begin(list_t *l)
+{
   /* What if the list is NULL? */
   return l->head;
 }
@@ -39,7 +39,8 @@ list_elem_t* list_begin ( list_t* l ) {
  *
  * @return the next element, or NULL if the element is NULL.
  */
-list_elem_t* list_next ( list_elem_t* e ){
+list_elem_t *list_next(list_elem_t *e)
+{
   /* What if the element is NULL? */
   return NULL;
 }
@@ -54,7 +55,8 @@ list_elem_t* list_next ( list_elem_t* e ){
  * @return the last element in the list, or NULL if the list is NULL
  * or empty.
  */
-list_elem_t* list_end ( list_t* l ) {
+list_elem_t *list_end(list_t *l)
+{
   /* What if the list is NULL? */
   /* Remember: This function should operate in O(1) time. */
   return NULL;
@@ -69,7 +71,8 @@ list_elem_t* list_end ( list_t* l ) {
  *
  * @return the number of elements in l, or 0 if l is NULL or empty
  */
-size_t list_size ( list_t* l ){
+size_t list_size(list_t *l)
+{
   /* What if the list is NULL? */
   /* Remember: This function should operate in O(1) time. */
   return 0;
@@ -80,7 +83,8 @@ size_t list_size ( list_t* l ){
  *
  * @return The new list, or NULL if memory allocation failed
  */
-list_t* list_new( void ) {
+list_t *list_new(void)
+{
   /* Please fix up this code. */
   return NULL;
 }
@@ -94,7 +98,8 @@ list_t* list_new( void ) {
  *
  * @param[in] l The list to initialize
  */
-void list_init ( list_t* l ) {
+void list_init(list_t *l)
+{
   /* Please fix up this code. */
   return;
 }
@@ -109,7 +114,8 @@ void list_init ( list_t* l ) {
  *
  * @param[in] l The list to initialize
  */
-void list_singleton ( list_t* l, list_elem_t* e ){
+void list_singleton(list_t *l, list_elem_t *e)
+{
   /* Please fix up this code. */
   return;
 }
@@ -120,7 +126,8 @@ void list_singleton ( list_t* l, list_elem_t* e ){
  * @param[in] l The list to insert into
  * @param[in] e Element to be inserted
  */
-void list_push_front ( list_t* l, list_elem_t* e ){
+void list_push_front(list_t *l, list_elem_t *e)
+{
   /* What if l or e are NULL? */
   return;
 }
@@ -133,7 +140,8 @@ void list_push_front ( list_t* l, list_elem_t* e ){
  * @param[in] l The list to insert into
  * @param[in] e Element to be inserted
  */
-void list_push_back ( list_t* l, list_elem_t* e ){
+void list_push_back(list_t *l, list_elem_t *e)
+{
   /* What if l or e are NULL? */
   /* Remember: This function should operate in O(1) time. */
   return;
@@ -150,7 +158,8 @@ void list_push_back ( list_t* l, list_elem_t* e ){
  *
  * @return pointer to first element in l (after its removal from l)
  */
-list_elem_t* list_pop_front ( list_t* l ){
+list_elem_t *list_pop_front(list_t *l)
+{
   /* What if l or e are NULL? */
   return NULL;
 }
@@ -164,7 +173,8 @@ list_elem_t* list_pop_front ( list_t* l ){
  *
  * @param[in] l The list to reverse
  */
-void list_reverse ( list_t* l ){
+void list_reverse(list_t *l)
+{
   /* You need to write the code for this function */
   /* This is challenging; our reference implementation has 12-13 lines
      of code. */
@@ -183,7 +193,8 @@ void list_reverse ( list_t* l ){
  *
  * @return pointer to last element in l (after its removal from l)
  */
-list_elem_t* list_pop_back ( list_t* l ){
+list_elem_t *list_pop_back(list_t *l)
+{
   /* What if l or e are NULL? */
   /* Remember: This function should operate in O(1) time. */
   /* This is very challenging, and strictly OPTIONAL.
