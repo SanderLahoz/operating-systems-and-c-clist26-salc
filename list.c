@@ -88,8 +88,13 @@ list_elem_t *list_end(list_t *l)
 size_t list_size(list_t *l)
 {
   /* What if the list is NULL? */
+  if (l == NULL)
+  {
+    return 0;
+  }
+
   /* Remember: This function should operate in O(1) time. */
-  return 0;
+  return l->size;
 }
 
 /**
