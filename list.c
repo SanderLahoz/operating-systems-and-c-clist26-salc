@@ -167,7 +167,7 @@ void list_push_front(list_t *l, list_elem_t *e)
 }
 
 /**
- * @brief Insert the given element to the front of the given list.
+ * @brief Insert the given element to the back of the given list.
  *
  * This function runs in O(1) time.
  *
