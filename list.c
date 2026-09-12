@@ -229,8 +229,16 @@ list_elem_t *list_pop_front(list_t *l)
   {
     return NULL;
   }
+
   list_elem_t *e = l->head;
   l->head = e->next;
+
+  /* We set the tail pointer to null if the list becomes empty */
+  if (l->head == NULL)
+  {
+    l->tail = NULL;
+  }
+
   l->size--;
 
   return e;
