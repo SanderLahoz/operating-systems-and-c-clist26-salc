@@ -105,7 +105,13 @@ size_t list_size(list_t *l)
 list_t *list_new(void)
 {
   /* Please fix up this code. */
-  return NULL;
+  list_t *l = malloc(sizeof(list_t));
+  if (l == NULL)
+  {
+    return NULL;
+  }
+  list_init(l);
+  return l;
 }
 
 /**
