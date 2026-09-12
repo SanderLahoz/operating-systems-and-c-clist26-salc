@@ -154,6 +154,21 @@ void list_singleton(list_t *l, list_elem_t *e)
 void list_push_front(list_t *l, list_elem_t *e)
 {
   /* What if l or e are NULL? */
+  if (l == NULL || e == NULL)
+  {
+    return;
+  }
+
+  e->next = l->head;
+  l->head = e;
+
+  if (l->head == NULL)
+  {
+    l->tail = e;
+  }
+
+  l->size++;
+
   return;
 }
 
