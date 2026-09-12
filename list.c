@@ -204,7 +204,15 @@ void list_push_back(list_t *l, list_elem_t *e)
 list_elem_t *list_pop_front(list_t *l)
 {
   /* What if l or e are NULL? */
-  return NULL;
+  if (l == NULL || l->head == NULL)
+  {
+    return NULL;
+  }
+  list_elem_t *e = l->head;
+  l->head = e->next;
+  l->size--;
+
+  return e;
 }
 
 /**
