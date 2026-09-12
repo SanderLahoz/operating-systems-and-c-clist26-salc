@@ -120,6 +120,9 @@ list_t *list_new(void)
 void list_init(list_t *l)
 {
   /* Please fix up this code. */
+  l->head = NULL;
+  l->tail = NULL;
+  l->size = 0;
   return;
 }
 
