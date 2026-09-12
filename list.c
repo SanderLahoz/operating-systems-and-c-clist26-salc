@@ -68,8 +68,12 @@ list_elem_t *list_next(list_elem_t *e)
 list_elem_t *list_end(list_t *l)
 {
   /* What if the list is NULL? */
+  if (l == NULL)
+  {
+    return NULL;
+  }
   /* Remember: This function should operate in O(1) time. */
-  return NULL;
+  return l->tail;
 }
 
 /**
