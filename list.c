@@ -193,10 +193,21 @@ void list_push_back(list_t *l, list_elem_t *e)
   }
 
   /* Remember: This function should operate in O(1) time. */
-  l->tail->next = e;
-  l->tail = e;
+  e->next = NULL;
+
+  if (l->head == NULL)
+  {
+    l->head = e;
+    l->tail = e;
+  }
+  else
+  {
+    l->tail->next = e;
+    l->tail = e;
+  }
 
   l->size++;
+
   return;
 }
 
