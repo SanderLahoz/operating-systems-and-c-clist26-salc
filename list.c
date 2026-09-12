@@ -226,9 +226,33 @@ list_elem_t *list_pop_front(list_t *l)
  */
 void list_reverse(list_t *l)
 {
+  if (l == NULL || l->head == NULL)
+  {
+    return;
+  }
+
   /* You need to write the code for this function */
   /* This is challenging; our reference implementation has 12-13 lines
      of code. */
+  list_elem_t *prev = NULL;
+  list_elem_t *curr = l->head;
+  list_elem_t *next = NULL;
+
+  while (curr != NULL)
+  {
+    next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
+  }
+  l->head = prev;
+
+  while (l->tail->next != NULL)
+  {
+    l->tail = l->tail->next;
+  }
+
+  return;
 }
 
 /**
