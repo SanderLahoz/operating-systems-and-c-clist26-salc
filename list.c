@@ -167,9 +167,13 @@ void list_push_front(list_t *l, list_elem_t *e)
 
   e->next = l->head;
   l->head = e;
-  l->size++;
 
-  return;
+  if (l->tail == NULL)
+  {
+    l->tail = e;
+  }
+
+  l->size++;
 }
 
 /**
