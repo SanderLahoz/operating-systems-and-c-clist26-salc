@@ -177,7 +177,16 @@ void list_push_front(list_t *l, list_elem_t *e)
 void list_push_back(list_t *l, list_elem_t *e)
 {
   /* What if l or e are NULL? */
+  if (l == NULL || e == NULL)
+  {
+    return;
+  }
+
   /* Remember: This function should operate in O(1) time. */
+  l->tail->next = e;
+  l->tail = e;
+
+  l->size++;
   return;
 }
 
