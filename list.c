@@ -255,7 +255,7 @@ list_elem_t *list_pop_front(list_t *l)
  */
 void list_reverse(list_t *l)
 {
-  if (l == NULL || l->head == NULL)
+  if (l == NULL || l->head == NULL || l->head->next == NULL)
   {
     return;
   }
@@ -267,6 +267,8 @@ void list_reverse(list_t *l)
   list_elem_t *curr = l->head;
   list_elem_t *next = NULL;
 
+  l->tail = l->head;
+
   while (curr != NULL)
   {
     next = curr->next;
@@ -275,11 +277,6 @@ void list_reverse(list_t *l)
     curr = next;
   }
   l->head = prev;
-
-  while (l->tail->next != NULL)
-  {
-    l->tail = l->tail->next;
-  }
 
   return;
 }
