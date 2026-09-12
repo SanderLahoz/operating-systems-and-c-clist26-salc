@@ -56,6 +56,8 @@ struct list
 {
     list_elem_t *head; /* Pointer to head. (NULL if list is empty.) */
     list_elem_t *tail; /* Pointer to tail. (NULL if list is empty.) */
+    unsigned int size; /* Number of elements in the list. */
+
     /*
      * TODO: You will need to add more fields to this structure
      *       to efficiently implement list_size and list_push_back
