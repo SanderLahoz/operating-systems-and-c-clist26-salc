@@ -139,6 +139,9 @@ void list_init(list_t *l)
 void list_singleton(list_t *l, list_elem_t *e)
 {
   /* Please fix up this code. */
+  l->head = e;
+  l->tail = e;
+  l->size = 1;
   return;
 }
 
