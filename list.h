@@ -27,8 +27,7 @@
  * list stores. We will store strings; we deal with this in `text.h`,
  * which you should head to once you are done with `list.c`.
  *
- * TODO: fill in your name and ITU alias
- * @author FIRSTNAME LASTNAME <ALIAS@itu.dk>
+ * @author Sander Lahoz Christensen <salc@itu.dk>
  */
 
 #include <stdbool.h>
@@ -57,11 +56,6 @@ struct list
     list_elem_t *head; /* Pointer to head. (NULL if list is empty.) */
     list_elem_t *tail; /* Pointer to tail. (NULL if list is empty.) */
     unsigned int size; /* Number of elements in the list. */
-
-    /*
-     * TODO: You will need to add more fields to this structure
-     *       to efficiently implement list_size and list_push_back
-     */
 };
 
 typedef struct list list_t;

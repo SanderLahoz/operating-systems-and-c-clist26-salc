@@ -9,8 +9,7 @@
  * A fork of the C programming lab developed at CMU for courses
  * 15-213/18-213/15-513 by R. E. Bryant, 2018
  *
- * TODO: fill in your name and ITU alias
- * @author FIRSTNAME LASTNAME <ALIAS@itu.dk>
+ * @author Sander Lahoz Christensen <salc@itu.dk>
  */
 
 #include "list.h"
@@ -28,11 +27,12 @@
  *
  * @return Pointer to the `text_t` which has `e` as its elem.
  */
-text_t* text_list_entry(list_elem_t* e) {
+text_t *text_list_entry(list_elem_t *e)
+{
   /* Sorcery?!
      Actually not:
      Suppose you have the memory address to (start of) a text_t.
-     I.e. a pointer t to said text_t. 
+     I.e. a pointer t to said text_t.
      What is, then, the memory address of t->next?
      (Look at how text_t and list_elem_t are defined).
      Now instead,
@@ -50,7 +50,7 @@ text_t* text_list_entry(list_elem_t* e) {
 }
 
 /**
- * @brief Allocates memory for a new `text_t` `t`, and copies the contents 
+ * @brief Allocates memory for a new `text_t` `t`, and copies the contents
  * of `s` into `t->value`.
  *
  * @param[in] s Pointer to a string.
@@ -58,8 +58,9 @@ text_t* text_list_entry(list_elem_t* e) {
  * @return Pointer to a freshly allocated text_t containing a copy of `s`
  * as its value, or `NULL` if allocation failed.
  */
-text_t* text_malloc ( const char* s ) {
-  text_t* t = malloc(sizeof(text_t));
+text_t *text_malloc(const char *s)
+{
+  text_t *t = malloc(sizeof(text_t));
   /* Don't forget to allocate space for the string and copy it */
   /* What if either call to malloc returns NULL? */
   return t;
@@ -73,12 +74,13 @@ text_t* text_malloc ( const char* s ) {
  * @param[in] s Pointer to a string
  * @param[in] n Size of s
  */
-void text_free ( text_t* t, char* s, size_t n ) {
+void text_free(text_t *t, char *s, size_t n)
+{
   /* What if t is NULL? */
   /* What if s is NULL? */
-  /* Does the following statement free everything that got allocated 
+  /* Does the following statement free everything that got allocated
      when t was allocated? */
-  free ( t );
+  free(t);
 }
 
 /**
@@ -93,15 +95,25 @@ void text_free ( text_t* t, char* s, size_t n ) {
  * @return true if insertion was successful
  * @return false if l or s are NULL, or memory allocation failed
  */
-bool text_list_push_front(list_t* l, const char* s) {
-  /* You do not need to change this code in any way. 
+bool text_list_push_front(list_t *l, const char *s)
+{
+  /* You do not need to change this code in any way.
      But you do need to implement
       - text_malloc     (in this file), and
       - list_push_front (in list.c). */
-  if ( s == NULL ) { return false; } // nothing to insert
-  if ( l == NULL ) { return false; } // list undefined
-  text_t* t = text_malloc ( s );
-  if ( t == NULL ) { return false; } // malloc failed
+  if (s == NULL)
+  {
+    return false;
+  } // nothing to insert
+  if (l == NULL)
+  {
+    return false;
+  } // list undefined
+  text_t *t = text_malloc(s);
+  if (t == NULL)
+  {
+    return false;
+  } // malloc failed
   list_push_front(l, &(t->elem));
   return true;
 }
@@ -118,15 +130,25 @@ bool text_list_push_front(list_t* l, const char* s) {
  * @return true if insertion was successful
  * @return false if l is NULL, or memory allocation failed
  */
-bool text_list_push_back(list_t* l, const char* s) {
-  /* You do not need to change this code in any way. 
+bool text_list_push_back(list_t *l, const char *s)
+{
+  /* You do not need to change this code in any way.
      But you do need to implement
       - text_malloc     (in this file), and
       - list_push_back  (in list.c). */
-  if ( s == NULL ) { return false; } // nothing to insert
-  if ( l == NULL ) { return false; } // list undefined
-  text_t* t = text_malloc ( s );
-  if ( t == NULL ) { return false; }
+  if (s == NULL)
+  {
+    return false;
+  } // nothing to insert
+  if (l == NULL)
+  {
+    return false;
+  } // list undefined
+  text_t *t = text_malloc(s);
+  if (t == NULL)
+  {
+    return false;
+  }
   list_push_back(l, &(t->elem));
   return true;
 }
@@ -148,15 +170,22 @@ bool text_list_push_back(list_t* l, const char* s) {
  * @return true if removal succeeded
  * @return false if l is NULL or empty
  */
-bool text_list_pop_front(list_t* l, char* s, size_t n) {
-  /* You do not need to change this code in any way. 
+bool text_list_pop_front(list_t *l, char *s, size_t n)
+{
+  /* You do not need to change this code in any way.
      But you do need implement
       - text_free       (in this file), and
       - list_pop_front  (in list.c). */
-  if ( l == NULL ) { return false; } // list undefined
-  list_elem_t* e = list_pop_front ( l );
-  if ( e == NULL ) { return false; } // list was empty
-  text_free ( text_list_entry( e ), s, n );
+  if (l == NULL)
+  {
+    return false;
+  } // list undefined
+  list_elem_t *e = list_pop_front(l);
+  if (e == NULL)
+  {
+    return false;
+  } // list was empty
+  text_free(text_list_entry(e), s, n);
   return true;
 }
 
@@ -165,8 +194,9 @@ bool text_list_pop_front(list_t* l, char* s, size_t n) {
  *
  * @param[in] l The list to free
  */
-void text_list_free( list_t* l ) {
+void text_list_free(list_t *l)
+{
   /* Free list structure */
-  free ( l );
+  free(l);
   /* How about the list elements, and the strings within each? */
 }
