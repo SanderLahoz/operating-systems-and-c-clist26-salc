@@ -53,9 +53,9 @@ typedef struct list_elem list_elem_t;
  */
 struct list
 {
-    list_elem_t *head; /* Pointer to head. (NULL if list is empty.) */
-    list_elem_t *tail; /* Pointer to tail. (NULL if list is empty.) */
-    unsigned int size; /* Number of elements in the list. */
+    list_elem_t *head;    /* Pointer to head. (NULL if list is empty.) */
+    list_elem_t *current; /* Pointer to tail. (NULL if list is empty.) */
+    size_t size;          /* Number of elements in the list. */
 };
 
 typedef struct list list_t;
