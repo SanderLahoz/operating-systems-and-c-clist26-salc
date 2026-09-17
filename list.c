@@ -73,7 +73,7 @@ list_elem_t *list_end(list_t *l)
     return NULL;
   }
   /* Remember: This function should operate in O(1) time. */
-  return l->tail;
+  return l->current;
 }
 
 /**
@@ -127,7 +127,7 @@ void list_init(list_t *l)
 {
   /* Please fix up this code. */
   l->head = NULL;
-  l->tail = NULL;
+  l->current = NULL;
   l->size = 0;
   return;
 }
@@ -146,7 +146,7 @@ void list_singleton(list_t *l, list_elem_t *e)
 {
   /* Please fix up this code. */
   l->head = e;
-  l->tail = e;
+  l->current = e;
   l->size = 1;
   return;
 }
@@ -168,9 +168,9 @@ void list_push_front(list_t *l, list_elem_t *e)
   e->next = l->head;
   l->head = e;
 
-  if (l->tail == NULL)
+  if (l->current == NULL)
   {
-    l->tail = e;
+    l->current = e;
   }
 
   l->size++;
@@ -198,12 +198,12 @@ void list_push_back(list_t *l, list_elem_t *e)
   if (l->head == NULL)
   {
     l->head = e;
-    l->tail = e;
+    l->current = e;
   }
   else
   {
-    l->tail->next = e;
-    l->tail = e;
+    l->current->next = e;
+    l->current = e;
   }
 
   l->size++;
@@ -233,10 +233,10 @@ list_elem_t *list_pop_front(list_t *l)
   list_elem_t *e = l->head;
   l->head = e->next;
 
-  /* We set the tail pointer to null if the list becomes empty */
+  /* We set the current pointer to null if the list becomes empty */
   if (l->head == NULL)
   {
-    l->tail = NULL;
+    l->current = NULL;
   }
 
   l->size--;
@@ -267,7 +267,7 @@ void list_reverse(list_t *l)
   list_elem_t *curr = l->head;
   list_elem_t *next = NULL;
 
-  l->tail = l->head;
+  l->current = l->head;
 
   while (curr != NULL)
   {
