@@ -229,7 +229,22 @@ bool text_list_pop_front(list_t *l, char *s, size_t n)
  */
 void text_list_free(list_t *l)
 {
+  if (l == NULL)
+  {
+    return;
+  }
+
   /* Free list structure */
-  free(l);
   /* How about the list elements, and the strings within each? */
+  list_elem_t *e = list_begin(l);
+  while (e != NULL)
+  {
+    list_elem_t *next = list_next(e);
+    text_t *t = text_list_entry(e);
+    free(t->value);
+    free(t);
+    e = next;
+  }
+
+  free(l);
 }
