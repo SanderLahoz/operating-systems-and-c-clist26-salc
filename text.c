@@ -69,6 +69,21 @@ text_t *text_malloc(const char *s)
   text_t *t = malloc(sizeof(text_t));
   /* Don't forget to allocate space for the string and copy it */
   /* What if either call to malloc returns NULL? */
+  if (t == NULL)
+  {
+    return NULL;
+  }
+
+  size_t len = strlen(s);
+  t->value = malloc(len + 1);
+  if (t->value == NULL)
+  {
+    free(t);
+    return NULL;
+  }
+
+  memcpy(t->value, s, len + 1);
+
   return t;
 }
 
