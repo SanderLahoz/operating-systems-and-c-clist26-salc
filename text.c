@@ -101,6 +101,18 @@ void text_free(text_t *t, char *s, size_t n)
   /* What if s is NULL? */
   /* Does the following statement free everything that got allocated
      when t was allocated? */
+  if (t == NULL)
+  {
+    return;
+  }
+
+  if (s != NULL && n > 0)
+  {
+    strncpy(s, t->value, n - 1);
+    s[n - 1] = '\0';
+  }
+
+  free(t->value);
   free(t);
 }
 
