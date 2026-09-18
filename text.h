@@ -28,7 +28,6 @@
  * from the implementation of tested functions, which simplifies the
  * implementation of those functions.
  *
- * TODO: fill in your name and ITU alias
  * @author Sander Lahoz Christensen <salc@itu.dk>
  */
 
