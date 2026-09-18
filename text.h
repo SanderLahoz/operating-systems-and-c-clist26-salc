@@ -29,7 +29,7 @@
  * implementation of those functions.
  *
  * TODO: fill in your name and ITU alias
- * @author FIRSTNAME LASTNAME <ALIAS@itu.dk>
+ * @author Sander Lahoz Christensen <salc@itu.dk>
  */
 
 #include <stdbool.h>
