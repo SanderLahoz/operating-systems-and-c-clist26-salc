@@ -46,7 +46,13 @@ text_t *text_list_entry(list_elem_t *e)
        printf("Memory address of ptr is %p\n", ptr);
      Once you have an answer, or get hard-stuck finding one,
      then you may use the answer from ptr-sol.txt . */
-  return NULL;
+
+  if (e == NULL)
+  {
+    return NULL;
+  }
+
+  return (text_t *)((char *)e - offsetof(text_t, elem));
 }
 
 /**
